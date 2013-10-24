@@ -1,0 +1,16 @@
+Installation:
+	Mac:
+		install	homebrew: package manager
+		install git
+			brew install git
+		install RVM: ruby version manager
+			www.rvm.beginrescueend.com
+		install ruby
+			rvm install 1.9.3
+		tell rvm which ruby version you wanna use
+			rvm use 1.9.3
+
+Bash command: irb
+	shuais-mbp:ruby Jack$ irb
+	1.9.3-p392 :001 > 
+
