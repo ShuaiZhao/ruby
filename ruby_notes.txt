@@ -14,3 +14,851 @@ Bash command: irb
 	shuais-mbp:ruby Jack$ irb
 	1.9.3-p392 :001 > 
 
+Variable Types:
+	local variable
+	instance var
+		@var
+	global variable
+		top of the file
+		put a '$' in front 
+			$toppings = false OR
+			$TOPPINGS  = false
+	constant
+		AVA=1
+	class name
+		Capitalize the first Letter
+
+control flow
+	if elsif else end
+	case 
+		when 1 
+			puts 
+		when 2 
+			puts xxx 
+	end
+
+object and classes
+	object.class #find what class is belong to
+	see example:
+		BankAccount.rb
+
+String
+	String.new # create a new string
+	String.new("Hello")
+	s = String.new("hello")
+	puts s
+	# nil means nth is returned
+	single quote is okay  'ccccccc'
+		sss= 'sssssss'
+	double qutoes is fine too
+		ssss = "xxxxxxx"
+	the difference between '' and "" is:
+		the content inside of '' will NOT be interpreted
+		ex:
+			1.9.3p392 :011 > name = "jack"
+ 			=> "jack" 
+
+			1.9.3p392 :015 > puts "Hello #{name}"
+			Hello jack
+							 
+			1.9.3p392 :016 > puts 'Hello #{name}'
+			Hello #{name}
+    other ways to create interpolated string beside "":
+    	1.9.3p392 :023 >   name =%{Jack}       	#interpolated string
+    	 => "Jack" 
+		1.9.3p392 :024 > name
+		 => "Jack" 
+		1.9.3p392 :025 > name = %q{Jack}		# not interpolated string
+		 => "Jack" 
+		1.9.3p392 :026 > name = %|Jack|			# you can use any string beside {}
+		 => "Jack" 
+		1.9.3p392 :027 > 
+		1.9.3p392 :028 >   name = <<-STR
+		1.9.3p392 :029"> jack
+		1.9.3p392 :030"> STR
+		 => "jack\n" 
+
+Special Characters and escaping
+	'\n'
+Working With Strings
+ 	1.9.3p392 :048 > string = "Hello world\n"
+	 => "Hello world\n" 
+	 1.9.3p392 :049 > string.inspect
+	 => "\"Hello world\\n\"" 
+	1.9.3p392 :050 > puts string.inspect
+	"Hello world\n"
+	 => nil 
+	1.9.3p392 :051 > puts string.cho
+	string.chomp   string.chomp!  string.chop    string.chop!   
+	1.9.3p392 :051 > puts string.chomp
+	Hello world
+	 => nil 
+	1.9.3p392 :052 > 
+	1.9.3p392 :053 >   string.chop
+	 => "Hello world" 
+	1.9.3p392 :054 > 
+	1.9.3p392 :055 >   
+	1.9.3p392 :056 >   string.include?("world"))
+	SyntaxError: (irb):56: syntax error, unexpected ')', expecting $end
+		from /usr/local/rvm/rubies/ruby-1.9.3-p392/bin/irb:16:in `<main>'
+	1.9.3p392 :057 > string.include?("world")
+	 => true 
+	1.9.3p392 :058 > 
+	1.9.3p392 :059 >   string
+	 => "Hello world\n" 
+	1.9.3p392 :060 > string.replace("jason")
+	 => "jason" 
+	1.9.3p392 :061 > 
+	1.9.3p392 :062 >   string
+	 => "jason" 
+	1.9.3p392 :063 > string.index("a")
+	 => 1 
+	1.9.3p392 :064 > 
+
+
+	http://ruby-doc.org/core-1.9.3/
+	http://www.ascii-code.com
+
+	1.9.3p392 :068 >   string = "hello world"
+	 => "hello world" 
+	1.9.3p392 :069 > string.reverse
+	 => "dlrow olleh" 
+	1.9.3p392 :070 > string.up
+	string.upcase   string.upcase!  string.upto     
+	1.9.3p392 :070 > string.upcase
+	 => "HELLO WORLD" 
+	1.9.3p392 :071 > string
+	 => "hello world" 
+	1.9.3p392 :072 > string.downcase
+	 => "hello world" 
+	1.9.3p392 :073 > string.upcase!
+	 => "HELLO WORLD" 
+	1.9.3p392 :074 > string
+	 => "HELLO WORLD" 
+	1.9.3p392 :075 > string.swapcase
+	 => "hello world" 
+	1.9.3p392 :076 > string
+	 => "HELLO WORLD" 
+	1.9.3p392 :077 > string.swapcase!
+	 => "hello world" 
+	1.9.3p392 :078 > string
+	 => "hello world" 
+	1.9.3p392 :079 > string.length
+	 => 11 
+	1.9.3p392 :080 > string.size
+	 => 11 
+	1.9.3p392 :081 > string.split
+	string.split
+	1.9.3p392 :081 > string.split(" ")
+	 => ["hello", "world"] 
+	1.9.3p392 :082 > string
+	 => "hello world" 
+	1.9.3p392 :086 >   string2 = "hello world how are you"
+	 => "hello world how are you" 
+	1.9.3p392 :087 > string.split(" ")
+	 => ["hello", "world"] 
+	1.9.3p392 :088 > string2.split(" ")
+	 => ["hello", "world", "how", "are", "you"] 
+	1.9.3p392 :095 > string2.concat( " Another thing")
+	 => "hello world how are you Another thing" 
+	1.9.3p392 :098 > string2.reverse
+	 => "gniht rehtonA uoy era woh dlrow olleh" 
+	1.9.3p392 :099 > string2
+	 => "hello world how are you Another thing" 
+	1.9.3p392 :100 > string2.reverse!
+	 => "gniht rehtonA uoy era woh dlrow olleh" 
+	1.9.3p392 :101 > string2
+	 => "gniht rehtonA uoy era woh dlrow olleh" 
+	1.9.3p392 :102 > 
+
+
+Numbers
+
+	1.9.3p392 :005 > number =100
+	 => 100 
+	1.9.3p392 :006 > number.class
+	 => Fixnum 
+	1.9.3p392 :007 > number = 100.5
+	 => 100.5 
+	1.9.3p392 :008 > number.class
+	 => Float 
+	1.9.3p392 :009 > string = "10"
+	 => "10" 
+	1.9.3p392 :010 > number= string.to_i
+	 => 10 
+	1.9.3p392 :011 > number.class
+	 => Fixnum 
+	1.9.3p392 :012 > number = string.to_f
+	 => 10.0 
+	1.9.3p392 :013 > number.class
+	 => Float 
+	1.9.3p392 :014 > string = "100.50"
+	 => "100.50" 
+	1.9.3p392 :015 > number = string.to_i
+	 => 100 
+	1.9.3p392 :016 > number = string.to_f
+	 => 100.5 
+	1.9.3p392 :017 > 
+	1.9.3p392 :018 >   
+	1.9.3p392 :024 >   5e10
+	 => 50000000000.0 
+	 1.9.3p392 :027 > number = 100
+	 => 100 
+	1.9.3p392 :028 > number.size
+	 => 8 # return how many bytes used in your computer
+
+	1.9.3p392 :003 >   10+10
+	 => 20 
+	1.9.3p392 :004 > 10-10
+	 => 0 
+	1.9.3p392 :005 > 10*10
+	 => 100 
+	1.9.3p392 :006 > 10/10
+	 => 1 
+	1.9.3p392 :007 > 10 % 10
+	 => 0 
+	1.9.3p392 :008 > 10 ** 2
+	 => 100 
+	1.9.3p392 :009 > 10 ** 3
+	 => 1000 
+	1.9.3p392 :010 > number = 10
+	 => 10 
+	1.9.3p392 :011 > number += 10
+	 => 20 
+	1.9.3p392 :012 > number
+	 => 20 
+	1.9.3p392 :013 > number -= 10
+	 => 10 
+	1.9.3p392 :014 > number
+	 => 10 
+	1.9.3p392 :015 > number *= 10
+	 => 100 
+	1.9.3p392 :016 > number
+	 => 100 
+	1.9.3p392 :017 > number /= 1
+	 => 10 
+	1.9.3p392 :018 > number **= 10 
+	 => 10000000000
+
+	 notes:
+		 <=> #combined comparison operator
+		 	return 0 if both sides are equal
+		 	return 1 if left side is bigger
+		 	return -1 if right side is bigger
+
+		 equ?() # check type AND value
+		
+	1.9.3p392 :002 > a=10
+	 => 10 
+	1.9.3p392 :003 > b=20
+	 => 20 
+	1.9.3p392 :004 > a == b
+	 => false 
+	1.9.3p392 :005 > a != b
+	 => true 
+	1.9.3p392 :006 > a > b
+	 => false 
+	1.9.3p392 :007 > a < b
+	 => true 
+	1.9.3p392 :008 > c = 10 
+	 => 10 
+	1.9.3p392 :009 > puts a , b , c
+	10
+	20
+	10
+	 => nil 
+	1.9.3p392 :010 > a <= c
+	 => true 
+	1.9.3p392 :011 > b <= c
+	 => false 
+	1.9.3p392 :012 > 
+	1.9.3p392 :013 >   a<=>b
+	 => -1 
+	1.9.3p392 :014 > 
+	1.9.3p392 :015 >   a<=>c
+	 => 0 
+	1.9.3p392 :016 > a.eql?(c)
+	 => true 
+	1.9.3p392 :017 > d=10.0
+	 => 10.0 
+	1.9.3p392 :018 > a.eql?(d)
+	 => false 
+
+MATH
+http://ruby-doc.org/core-1.9.3/Math.html
+	1.9.3p392 :003 > Math::E
+	 => 2.718281828459045 
+	1.9.3p392 :004 > Math::PI
+	 => 3.141592653589793 
+	1.9.3p392 :005 > 
+	1.9.3p392 :006 >   Math.log(12)
+	 => 2.4849066497880004 
+	1.9.3p392 :007 > Math.log(12,3)
+	 => 2.2618595071429146 
+	1.9.3p392 :008 > Math.log(Math::E)
+	 => 1.0 
+	1.9.3p392 :009 > Math.log(Math::PI)
+	 => 1.1447298858494002 
+
+	 1.9.3p392 :012 >   rand
+	 => 0.015188013387267163 
+	1.9.3p392 :013 > rand
+	 => 0.7124095040444662 
+	1.9.3p392 :014 > rand
+	 => 0.09022312880419947 
+	1.9.3p392 :015 > rand
+	 => 0.8213188685917254 
+	1.9.3p392 :016 > rand 100
+	 => 76 
+	1.9.3p392 :017 > rand 20
+	 => 6 
+	1.9.3p392 :018 > rand 15
+	 => 7 
+	1.9.3p392 :019 > rand 15
+	 => 12 
+	1.9.3p392 :020 > rand 15
+	 => 10 
+	1.9.3p392 :021 > number = 100.5
+	 => 100.5 
+	1.9.3p392 :022 > number.class
+	 => Float 
+	1.9.3p392 :023 > sprintf("$%0.2f",number)
+	 => "$100.50"
+
+
+	1.9.3p392 :036 >   7.3-7.2
+	 => 0.09999999999999964 
+	 1.9.3p392 :042 >   require "bigdecimal"
+	 => true 
+	1.9.3p392 :043 > a = BigDecimal.new("7.3")
+	 => #<BigDecimal:10084c2f8,'0.73E1',18(18)> 
+	1.9.3p392 :044 > b = BigDecimal.new("7.2")
+	 => #<BigDecimal:100841358,'0.72E1',18(18)> 
+	1.9.3p392 :045 > c = a -b
+	 => #<BigDecimal:100836480,'0.1E0',9(36)> 
+	1.9.3p392 :046 > c
+	 => #<BigDecimal:100836480,'0.1E0',9(36)> 
+	1.9.3p392 :048 > puts c
+	0.1E0
+	 => nil 
+
+
+currency
+	 http://money.rubyforge.org
+Jack$ gem install money
+	Fetching: money-5.1.1.gem (100%)
+	Successfully installed money-5.1.1
+	1 gem installed
+	Installing ri documentation for money-5.1.1...
+	Installing RDoc documentation for money-5.1.1...
+	mustafa:ruby Jack$ 
+
+	1.9.3p392 :005 >   price = Money.new(1000)
+	 => #<Money fractional:1000 currency:USD> 
+	1.9.3p392 :006 > puts pri
+	price            print            printf           private          private_methods
+	1.9.3p392 :006 > puts price
+	10.00
+	 => nil 
+	1.9.3p392 :007 > tax = Money.new(300)
+	 => #<Money fractional:300 currency:USD> 
+	1.9.3p392 :008 > price + tax
+	 => #<Money fractional:1300 currency:USD> 
+	1.9.3p392 :009 > total = price + tax
+	 => #<Money fractional:1300 currency:USD> 
+	1.9.3p392 :010 > puts total
+	13.00
+	 => nil 
+
+Arrays
+	http://ruby-doc.org/core-1.9.3/Array.html
+	Array can contain pretty much everything
+	1.9.3p392 :001 > array = Array.new
+	 => [] 
+	1.9.3p392 :002 > array.push(1)
+	 => [1] 
+	1.9.3p392 :003 > array = []
+	 => [] 
+	1.9.3p392 :004 > array
+	 => [] 
+	1.9.3p392 :005 > array << 2
+	 => [2] 
+	1.9.3p392 :006 > array << 3
+	 => [2, 3] 
+	1.9.3p392 :007 > array
+	 => [2, 3] 
+	1.9.3p392 :008 > array << "hello world"
+	 => [2, 3, "hello world"] 
+	1.9.3p392 :009 > array.pop
+	 => "hello world" 
+	1.9.3p392 :010 > array
+	 => [2, 3] 
+	1.9.3p392 :011 > array.
+	Display all 153 possibilities? (y or n)
+	1.9.3p392 :011 > array.length
+	 => 2 
+	1.9.3p392 :012 > array.si
+	array.singleton_class    array.singleton_methods  array.size               
+	1.9.3p392 :012 > array.si
+	array.singleton_class    array.singleton_methods  array.size               
+	1.9.3p392 :012 > array.size
+	 => 2 
+	1.9.3p392 :013 > array += [4]
+	 => [2, 3, 4] 
+	1.9.3p392 :015 > array.index(0)
+	 => nil 
+	1.9.3p392 :016 > array.index(3)
+	 => 1 
+	1.9.3p392 :017 > array[1]
+	 => 3 
+
+
+	1.9.3p392 :037 >   array1 = [1,2,3]
+	 => [1, 2, 3] 
+	1.9.3p392 :038 > array2 = [4,5,6]
+	 => [4, 5, 6] 
+	1.9.3p392 :039 > array1
+	 => [1, 2, 3] 
+	1.9.3p392 :040 > array2
+	 => [4, 5, 6] 
+	1.9.3p392 :041 > array1[0]
+	 => 1 
+	1.9.3p392 :042 > array[-1]
+	 => 4 
+	1.9.3p392 :043 > array1[-1]
+	 => 3 
+	1.9.3p392 :044 > array1[-3]
+	 => 1 
+	1.9.3p392 :045 > array1.first
+	 => 1 
+	1.9.3p392 :046 > array1.last
+	 => 3 
+	1.9.3p392 :047 > 
+	1.9.3p392 :048 >   
+	1.9.3p392 :049 >   
+	1.9.3p392 :050 >   
+	1.9.3p392 :051 >   array1 & array2
+	 => [] 
+	1.9.3p392 :052 > array1
+	 => [1, 2, 3] 
+	1.9.3p392 :053 > array1 & [2,3,4]
+	 => [2, 3] 
+	1.9.3p392 :054 > array1.slice(1)
+	 => 2 
+	1.9.3p392 :055 > 
+	1.9.3p392 :056 >   array1
+	 => [1, 2, 3] 
+	1.9.3p392 :057 > array1.slice(1,2)
+	 => [2, 3] 
+	1.9.3p392 :058 > array1.slice(0)
+	 => 1 
+	1.9.3p392 :059 > array1.slice!(1,2)
+	 => [2, 3] 
+	1.9.3p392 :060 > array1
+	 => [1] 
+
+
+	1.9.3p392 :062 >   
+	1.9.3p392 :063 >   array1.unshift(2)
+	 => [2, 1] 
+	1.9.3p392 :064 > array1
+	 => [2, 1] 
+	1.9.3p392 :065 > array1.at(0)
+	 => 2 
+	1.9.3p392 :066 > array1.rindex(2)
+	 => 0 
+	1.9.3p392 :067 > 
+	1.9.3p392 :068 >   array1
+	 => [2, 1] 
+	1.9.3p392 :069 > 
+	1.9.3p392 :070 >   array1.clear
+	 => [] 
+	1.9.3p392 :071 > array1
+	 => [] 
+
+
+
+	 1.9.3p392 :074 >   
+	1.9.3p392 :075 >   array1 = [1,2,3]
+	 => [1, 2, 3] 
+	1.9.3p392 :076 > array1.push([3,4,5])
+	 => [1, 2, 3, [3, 4, 5]] 
+	1.9.3p392 :077 > array1
+	 => [1, 2, 3, [3, 4, 5]] 
+	1.9.3p392 :078 > array1.flatten
+	 => [1, 2, 3, 3, 4, 5] 
+	1.9.3p392 :079 > array1
+	 => [1, 2, 3, [3, 4, 5]] 
+	1.9.3p392 :080 > array1.flatten!
+	 => [1, 2, 3, 3, 4, 5] 
+	1.9.3p392 :081 > array1
+	 => [1, 2, 3, 3, 4, 5] 
+	1.9.3p392 :082 > 
+
+
+	#sort and comparison
+
+	1.9.3p392 :095 >   array= [5,4,6,6,1,9]
+	 => [5, 4, 6, 6, 1, 9] 
+	1.9.3p392 :096 > array.sort
+	 => [1, 4, 5, 6, 6, 9] 
+	1.9.3p392 :097 > array.sort!
+	 => [1, 4, 5, 6, 6, 9] 
+	1.9.3p392 :098 > array
+	 => [1, 4, 5, 6, 6, 9] 
+
+	 1.9.3p392 :106 > array= [5,4,6,6,1,9]
+	 => [5, 4, 6, 6, 1, 9] 
+	1.9.3p392 :107 > 
+	1.9.3p392 :108 >   array.sort{|a,b| a<=>b}
+	 => [1, 4, 5, 6, 6, 9] 
+	1.9.3p392 :109 > array.sort{|a,b| b<=>a}
+	 => [9, 6, 6, 5, 4, 1] 
+	1.9.3p392 :110 > array.sort.reverse
+	 => [9, 6, 6, 5, 4, 1] 
+	1.9.3p392 :111 > array.uniq
+	 => [5, 4, 6, 1, 9] 
+	1.9.3p392 :112 > array
+	 => [5, 4, 6, 6, 1, 9] 
+	1.9.3p392 :113 > array.uniq!
+	 => [5, 4, 6, 1, 9] 
+	1.9.3p392 :114 > array
+	 => [5, 4, 6, 1, 9] 
+	1.9.3p392 :115 > 
+
+
+	#iteration
+
+	1.9.3p392 :136 >   array.all?
+	 => true 
+	1.9.3p392 :137 > array.all? {|item| item >3}
+	 => false 
+	1.9.3p392 :138 > array
+	 => [5, 4, 6, 1, 9] 
+	1.9.3p392 :139 > array.any? {|item| item >3}
+	 => true 
+	1.9.3p392 :140 > 
+	1.9.3p392 :141 >   array.select {|item| item>3}
+	 => [5, 4, 6, 9] 
+	1.9.3p392 :142 > 
+	1.9.3p392 :143 >   array.reject {|item| item >3}
+	 => [1] 
+	1.9.3p392 :144 > array.map {|item| item * 2}
+	 => [10, 8, 12, 2, 18] 
+	1.9.3p392 :146 > array.collect{|item| item * 2}
+	 => [10, 8, 12, 2, 18] 
+	1.9.3p392 :147 > array
+	 => [5, 4, 6, 1, 9] 
+	1.9.3p392 :148 > array.collect! {|item| item * 2}
+	 => [10, 8, 12, 2, 18] 
+	1.9.3p392 :149 > array
+	 => [10, 8, 12, 2, 18] 
+
+
+
+Hashes
+	A hash is a container for data. 
+	It can store any data like array
+	but it sorts data in {key,value} format instead of index like array
+
+	mustafa:ruby Jack$ gem install awesome_print
+	Fetching: awesome_print-1.2.0.gem (100%)
+	Successfully installed awesome_print-1.2.0
+	1 gem installed
+	Installing ri documentation for awesome_print-1.2.0...
+	Installing RDoc documentation for awesome_print-1.2.0...
+
+	# awesome install is not necessary, it will just will print nice hash format
+
+	mustafa:ruby Jack$ irb
+	1.9.3p392 :001 > 
+	1.9.3p392 :002 >   require 'rubygems'
+	 => false 
+	1.9.3p392 :003 > require 'rubygems'
+	 => false 
+
+	1.9.3p392 :005 > h = Hash.new
+	 => {} 
+	1.9.3p392 :006 > h
+	 => {} 
+	1.9.3p392 :007 > h = {"hello" => "world"}
+	 => {"hello"=>"world"} 
+	1.9.3p392 :008 > ap h
+	{
+	    "hello" => "world"
+	}
+	 => nil 
+	1.9.3p392 :009 > h["name"] = "jack"
+	 => "jack" 
+	1.9.3p392 :010 > h
+	 => {"hello"=>"world", "name"=>"jack"} 
+	1.9.3p392 :011 > ap h
+	{
+	    "hello" => "world",
+	     "name" => "jack"
+	}
+	 => nil 
+	1.9.3p392 :012 > h = {"name" => "jack", "hello" => "world"}
+	 => {"name"=>"jack", "hello"=>"world"} 
+	1.9.3p392 :013 > ap h
+	{
+	     "name" => "jack",
+	    "hello" => "world"
+	}
+	 => nil 
+	1.9.3p392 :014 > 
+	1.9.3p392 :015 >   treehouse = Hash.new
+	 => {} 
+	1.9.3p392 :016 > treehouse["a"] = "1"
+	 => "1" 
+	1.9.3p392 :017 > treehouse["b"] = "2"
+	 => "2" 
+	1.9.3p392 :018 > treehouse["c"] = "3"
+	 => "3" 
+	1.9.3p392 :019 > ap h
+	{
+	     "name" => "jack",
+	    "hello" => "world"
+	}
+	 => nil 
+	1.9.3p392 :020 > ap treehouse
+	{
+	    "a" => "1",
+	    "b" => "2",
+	    "c" => "3"
+	}
+	 => nil 
+	1.9.3p392 :021 > treehouse['a']
+	 => "1" 
+	1.9.3p392 :022 > h = Hash.new {|hash, key| hash[key] = "default valude of"}
+	 => {} 
+	1.9.3p392 :023 > 
+	1.9.3p392 :024 >   h = Hash.new {|hash, key| hash[key] = "default valude for #{key}" }
+	 => {} 
+	1.9.3p392 :025 > h['hello']
+	 => "default valude for hello" 
+	1.9.3p392 :026 > ap h
+	{
+	    "hello" => "default valude for hello"
+	}
+	 => nil 
+	1.9.3p392 :027 > h[0]
+	 => "default valude for 0" 
+	1.9.3p392 :028 > ap h
+	{
+	    "hello" => "default valude for hello",
+	          0 => "default valude for 0"
+	}
+	 => nil 
+
+
+
+	 # Keys and Values
+
+	1.9.3p392 :030 >   ap treehouse
+	{
+	    "a" => "1",
+	    "b" => "2",
+	    "c" => "3"
+	}
+	 => nil 
+	1.9.3p392 :031 > treehouse.keys
+	 => ["a", "b", "c"] 
+
+	 1.9.3p392 :033 > treehouse.values
+	 => ["1", "2", "3"] 
+	1.9.3p392 :034 > treehouse.key('1')
+	 => "a" 
+	1.9.3p392 :035 > treehouse.key("1")
+	 => "a" 
+	1.9.3p392 :038 > treehouse['a']
+	 => "1" 
+	1.9.3p392 :067 > treehouse.has_value?('1')
+	 => true 
+	1.9.3p392 :068 > treehouse.values_at('1')
+	 => [nil] 
+	1.9.3p392 :069 > treehouse.values_at('a')
+	 => ["1"] 
+	1.9.3p392 :070 > treehouse.values_at('b')
+	 => ["2"] 
+	1.9.3p392 :071 > treehouse.values_at('c')
+	 => ["3"] 
+
+
+	 # working with hashes
+	1.9.3p392 :076 >   h = Hash.new
+	 => {} 
+	1.9.3p392 :077 > h.empty?
+	 => true 
+	1.9.3p392 :078 > 
+	1.9.3p392 :079 >   ap treehouse
+	{
+	    "a" => "1",
+	    "b" => "2",
+	    "c" => "3"
+	}
+	 => nil 
+	1.9.3p392 :080 > ap h
+	{}
+	 => nil 
+	1.9.3p392 :081 > 
+	1.9.3p392 :082 >   treehouse.de
+	treehouse.default                  treehouse.define_singleton_method
+	treehouse.default=                 treehouse.delete
+	treehouse.default_proc             treehouse.delete_if
+	treehouse.default_proc=            treehouse.detect
+	1.9.3p392 :082 >   treehouse.delete('a')
+	 => "1" 
+	1.9.3p392 :083 > ap treehouse
+	{
+	    "b" => "2",
+	    "c" => "3"
+	}
+	 => nil 
+	1.9.3p392 :084 > treehouse.clear
+	 => {} 
+	1.9.3p392 :085 > ap treehouse
+	{}
+	 => nil 
+	1.9.3p392 :086 > treehouse.empty?
+	 => true 
+	1.9.3p392 :087 > treehouse = {
+	1.9.3p392 :088 >         "a" => "1",
+	1.9.3p392 :089 >         "b" => "2",
+	1.9.3p392 :090 >         "c" => "3"
+	1.9.3p392 :091?>   }
+	 => {"a"=>"1", "b"=>"2", "c"=>"3"} 
+	1.9.3p392 :092 >  
+	1.9.3p392 :093 >   ap treehouse
+	{
+	    "a" => "1",
+	    "b" => "2",
+	    "c" => "3"
+	}
+	 => nil 
+	1.9.3p392 :094 > ap treehouse.to_a
+	[
+	    [0] [
+	        [0] "a",
+	        [1] "1"
+	    ],
+	    [1] [
+	        [0] "b",
+	        [1] "2"
+	    ],
+	    [2] [
+	        [0] "c",
+	        [1] "3"
+	    ]
+	]
+	 => nil 
+	1.9.3p392 :095 > array = treehouse.to_a
+	 => [["a", "1"], ["b", "2"], ["c", "3"]] 
+	1.9.3p392 :096 > array[0]
+	 => ["a", "1"] 
+	1.9.3p392 :097 > array[0][1]
+	 => "1" 
+	1.9.3p392 :098 > array[0][0]
+	 => "a" 
+	1.9.3p392 :099 > treehouse.delete_if {|key,value| key == 'a'}
+	 => {"b"=>"2", "c"=>"3"} 
+
+
+	 # Hash iteration
+
+	1.9.3p392 :002 >   treehouse = {'a'=>1,'b'=>2,'c'=>3}
+	 => {"a"=>1, "b"=>2, "c"=>3} 
+	1.9.3p392 :003 > ap treehouse
+	NoMethodError: undefined method `ap' for main:Object
+		from (irb):3
+		from /usr/local/rvm/rubies/ruby-1.9.3-p392/bin/irb:16:in `<main>'
+	1.9.3p392 :004 > require 'awesome_print'
+	 => true 
+	1.9.3p392 :005 > ap treehouse
+	{
+	    "a" => 1,
+	    "b" => 2,
+	    "c" => 3
+	}
+	 => nil 
+	1.9.3p392 :006 > 
+	1.9.3p392 :007 >   treehouse.each do |key, value|
+	1.9.3p392 :008 >     puts "#{key} --- #{value}"
+	1.9.3p392 :009?>   end
+	a --- 1
+	b --- 2
+	c --- 3
+	 => {"a"=>1, "b"=>2, "c"=>3} 
+	1.9.3p392 :010 > 
+	1.9.3p392 :011 >   treehouse.each_pair {|key, value| puts "#{key} --- #{value}" }
+	a --- 1
+	b --- 2
+	c --- 3
+	 => {"a"=>1, "b"=>2, "c"=>3} 
+	1.9.3p392 :012 > 
+	1.9.3p392 :013 >   
+	1.9.3p392 :014 >   treehouse.keys
+	 => ["a", "b", "c"] 
+	1.9.3p392 :015 > treehouse.each_key {|key| puts "key is #{key}"}
+	key is a
+	key is b
+	key is c
+	 => {"a"=>1, "b"=>2, "c"=>3} 
+	1.9.3p392 :016 > 
+	1.9.3p392 :017 >   treehouse.each_value {|value| puts "value is #{value}"}
+	value is 1
+	value is 2
+	value is 3
+	 => {"a"=>1, "b"=>2, "c"=>3} 
+	 1.9.3p392 :039 >   
+	1.9.3p392 :040 >   treehouse.select {|key, value| key == 'a'} 
+	 => {"a"=>1} 
+	1.9.3p392 :041 > treehouse.select! {|key, value| key == 'a'}
+	 => {"a"=>1} 
+	 1.9.3p392 :052 > treehouse['d'] = 5
+	 => 5 
+	1.9.3p392 :053 > ap treehouse
+	{
+	    "a" => 1,
+	    "d" => 5
+	}
+	 => nil 
+	1.9.3p392 :054 > ap treehouse
+	{
+	    "a" => 1,
+	    "d" => 5
+	}
+	 => nil 
+	1.9.3p392 :055 > treehouse.keep_if{|key,value| key=='a'}
+	 => {"a"=>1} 
+	1.9.3p392 :056 > 
+	1.9.3p392 :057 >   treehouse
+	 => {"a"=>1} 
+	1.9.3p392 :058 > 
+
+
+	# enumerable
+		1.9.3p392 :004 > treehouse ={'a'=>1,'b'=>2,'c'=>3}
+	 => {"a"=>1, "b"=>2, "c"=>3} 
+	1.9.3p392 :005 > 
+	1.9.3p392 :006 >   ap treehouse
+	{
+	    "a" => 1,
+	    "b" => 2,
+	    "c" => 3
+	}
+	 => nil 
+	1.9.3p392 :007 > treehouse.find {|key,value| key=='a'}
+	 => ["a", 1] 
+
+
+
+
+
+
+
+
+
+
+
+
