@@ -854,15 +854,99 @@ Hashes
 
 Methods
 	In ruby, there are instance and class methods
+	The return value of the method IS THE LAST LINE of the method
 
 	# Instance methods
-		
+		see single_method.rb
+	
+	ex:
+		BankAccount2.rb
+
+	1.9.3p392 :003 > load 'BankAccount2.rb'
+	#<BankAccount:0x0000010092e8b0 @balance=0, @first_name="jack", @last_name="zhao">
+	 => true 
+	1.9.3p392 :004 > 
+	1.9.3p392 :005 >   ba = BankAccount.new("a","b")
+	 => #<BankAccount:0x0000010088f788 @balance=0, @first_name="a", @last_name="b"> 
+	1.9.3p392 :006 > ba.deposit(100)
+	 => 100 
+	1.9.3p392 :007 > ba
+	 => #<BankAccount:0x0000010088f788 @balance=100, @first_name="a", @last_name="b"> 
+	1.9.3p392 :008 > ba.inspect
+	 => "#<BankAccount:0x0000010088f788 @balance=100, @first_name=\"a\", @last_name=\"b\">" 
+	1.9.3p392 :009 > puts ba.inspect
+	#<BankAccount:0x0000010088f788 @balance=100, @first_name="a", @last_name="b">
+	 => nil 
+	1.9.3p392 :010 > ba.withdraw(100)
+	 => 0 
+	1.9.3p392 :011 > 
+
+
+	# class method
+	how to define class method:
+		def self.name()
+			xxx
+		end
+
+	OR
+
+		class << self
+
+			def name()
+				xxx
+			end
+		end
+
+
+	attr_reader :balance 
+		# this will create following
+			def balance
+				@balance
+			end
+	attr_accessor :balance
+		# will create reader and writter for you
+			def balance=(items)
+				@balance += items
+			end
+
+			def balance
+				@balance
+			end
+
+
+	# Method Visibility
+	ruby class method is public by default
+	private method can be called inside of the class
+	
+	Two ways to define private method
+	1. private   #anything under private keyword is private methods
+		ex: private
+			def reset!
+				sxxxx
+			end
+	2. use "private :reset!"
+		def reset!
+			xxx
+		end
+
+		private :reset!
+
+	usually we will define a public class method and call the private method inside of the public method
+	ex:
+		def call_the_reset_method
+			reset!
+		end
+
+	3. protected method is pretty much likeprivate methods,expect protected methods CAN BE called by other instances of the same class
+	ex:
+		protected
+		def protected_reset!
+			@balance = 0
+		end
 
 
 
-
-
-
-
+loops
+	
 
 
