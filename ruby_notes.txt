@@ -852,7 +852,11 @@ Hashes
 	 => ["a", 1] 
 
 
+Methods
+	In ruby, there are instance and class methods
 
+	# Instance methods
+		
 
 
 
