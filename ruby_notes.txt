@@ -947,6 +947,334 @@ Methods
 
 
 loops
+	see "/Users/Jack/Documents/ruby/loop.rb"
+	ex:
+		retry redo
+		break next
+
+blocks
+	see "block.rb"
+	create block
+	yourBlock.call
+
+	#working with block
+	see "block-2.rb"
+	check if the block is given or not
+	if block_given?  # block_given is a given function
+		yourBlock.call
+	esle
+		puts xxx
+	end
+
+	# exception
+	see block-3.rb
+	raise			---    		exception
+	rescue			---			catch
+	ensure			---			finally
+
+	# BEGIN and END block
+	see block-4.rb
+	BEGIN { }this will always be excuted at the beginning of your program
+
+	END {} this will always be excuted at the end of your program
+
+
+	# keyword: yields
+	see exmaple "yield.rb"
+	yield and block.call has the same function BUT:
+	the different betweet yield and block.call is that :
+			yield can be call many times
+			it can pass arguments to block 
+
+Procs & Lambdas
+	Procs and Lambdas are blocks of code that can be assigned to variables. Learn the different ways of creating procs and lambdas in this video.
+
+	hwo to create proc and lambda
+		proc:
+			my_proc = Proc.new {}
+			my_proc = proc {}
+
+			my_proc.call arguments   # () is optional in all ruby method calls
+			OR
+			my_proc.call(arguments)
+
+		lambdas:
+			my_lambda = lambda {}
+			my_lambda = -> {}
+
+			my_lambda.call arguments
+			OR
+			my_lambda.call(arguments) 
+
+	# work with proc and lambda
+	the power of proc and lambda is they are bonded with what is calling them
 	
+	proc ex1:
+		1.9.3p392 :006 >   my_proc =proc { |name| puts "hello, #{name}" }
+		 => #<Proc:0x0000010084b858@(irb):6> 
+		1.9.3p392 :007 > my_proc.call
+		hello, 
+		 => nil 
+		1.9.3p392 :008 > my_proc.call "jack"
+		hello, jack
+		 => nil 
+		1.9.3p392 :009 > my_proc.call("jason")
+		hello, jason
+		 => nil 
+		1.9.3p392 :010 > 
+	lambda ex2:
+		1.9.3p392 :013 > my_lambda = lambda {|name| puts "Lambda said hello #{name}" }
+		 => #<Proc:0x000001008376f0@(irb):13 (lambda)> 
+		1.9.3p392 :014 > 
+		1.9.3p392 :015 >   my_lambda.call("Jack")
+		Lambda said hello Jack
+		 => nil 
+		1.9.3p392 :016 > 
+		1.9.3p392 :016 > my_lambda.call
+		ArgumentError: wrong number of arguments (0 for 1)
+			from (irb):13:in `block in irb_binding'
+			from (irb):16:in `call'
+			from (irb):16
+			from /usr/local/rvm/rubies/ruby-1.9.3-p392/bin/irb:16:in `<main>'
+		1.9.3p392 :017 > 
+
+		#the difference between proc and lambda
+		1. when lambda calls, it must have the arguments it required for lambda.call function
+			but proc can have no arguments at any time
+		2, return value: see proc_and_lambda.rb
+			return from proc
+			return from who call the lambda
+
+		# see example /Users/Jack/Documents/ruby/paper.rb 
+
+
+Modules
+	Modules serve as containers for data, classes, methods, or even other modules. Modules are very useful for sharing behavior between your classes and are frequently used for namespacing classes and constants in your programs.
+
+	ex:	
+	module.rb
+		module ModuleOne
+			MASCOT = "This is a consatnt"
+		end
+
+		1.9.3p392 :001 > load "module.rb"
+		 => true 
+		1.9.3p392 :002 > ModuleOne.inspect
+		 => "ModuleOne" 
+		1.9.3p392 :003 > ModuleOne.class
+		 => Module 
+		1.9.3p392 :004 > load "module.rb"
+		 => true 
+		1.9.3p392 :005 > ModuleOne.inspect
+		 => "ModuleOne" 
+		1.9.3p392 :006 > ModuleOne::MASCOT
+		 => "This is a consatnt" 
+
+	# put class in moudles, called namespacing
+	ex module.rb
+		module ModuleOne
+			MASCOT = "This is a consatnt"
+
+			class Frog
+				attr_accessor :name
+			end
+		end
+
+		1.9.3p392 :009 > load "module.rb"
+		module.rb:2: warning: already initialized constant MASCOT
+		 => true 
+		1.9.3p392 :010 > 
+		1.9.3p392 :014 > mike = ModuleOne::Frog.new
+		 => #<ModuleOne::Frog:0x00000100a04780> 
+		1.9.3p392 :015 > mike.name = "My name is Frogggg"
+		 => "My name is Frogggg" 
+		1.9.3p392 :016 > 
+		1.9.3p392 :017 >   mike.inspect
+		 => "#<ModuleOne::Frog:0x00000100a04780 @name=\"My name is Frogggg\">" 
+		1.9.3p392 :018 > 
+
+	# Extend and Include 
+	There are two different ways to use modules in your programs: extend and include. In this first part of a two part series, learn about the differences.
+
+	extend and the instance method to a class
+	include  makes the module methods avaiable to class instances
+
+
+	see example1
+		 "extend_include.rb"
+
+			module SayHello
+				def say_hello
+					puts "Hello #{@name}"
+				end
+			end
+
+
+			class Hello
+
+				include SayHello
+
+				def initialize(name)
+					@name = name
+				end
+			end
+
+			hello = Hello.new("Jack")
+
+			# use the extend keyword and extend our Hello instance hello
+			#hello.extend SayHello
+
+			hello.say_hello
+
+	see example2
+		"extend_include_2.rb"
+
+
+Ruby Core
+	The core collection of classes and modules helps out when coding Ruby programs. The Ruby Core badge walks you through some of the classes and modules available.
+
+	# symbols
+	Symbols represent names and strings in the Ruby interpreter. Symbols are only created once and referred to through the rest of the run time of the program. Learn how to create symbols and the optimal times to use them when writing your programs.
+
+	the difference between symbol and string is:
+	1. symbol (:xxx) only exists in memeory 
+	2. symbol only be created once in ruby session
+
+	three ways to use symbol in hash:
+	 
+	one:
+	Shuais-MacBook-Pro:ruby Jack$ irb
+	1.9.3p392 :001 > th ={'name'=> "jack", "location"=>"USA", "phone"=>"888888"}
+	 => {"name"=>"jack", "location"=>"USA", "phone"=>"888888"} 
+	1.9.3p392 :002 > th.inspect
+	 => "{\"name\"=>\"jack\", \"location\"=>\"USA\", \"phone\"=>\"888888\"}" 
+	1.9.3p392 :003 > th.class
+	 => Hash 
+	
+
+	1.9.3p392 :004 > th2 = {:name =>"Jack", :location=>"USAAAA", :phone=>"21213"}
+	 => {:name=>"Jack", :location=>"USAAAA", :phone=>"21213"} 
+	1.9.3p392 :005 > th2.inspect
+	 => "{:name=>\"Jack\", :location=>\"USAAAA\", :phone=>\"21213\"}" 
+	1.9.3p392 :006 > th2.class
+	 => Hash 
+
+
+
+	 # data nd time
+	 require 'date'
+	 require 'time'
+
+
+	1.9.3p392 :023 >   require 'date'
+	 => true 
+	1.9.3p392 :024 > require 'time'
+	 => true 
+	1.9.3p392 :025 > date = Date.new
+	 => #<Date: -4712-01-01 ((0j,0s,0n),+0s,2299161j)> 
+	1.9.3p392 :026 > puts date.to_s
+	-4712-01-01
+	 => nil 
+	1.9.3p392 :027 > date = Date.new(2012,4,1,)
+	 => #<Date: 2012-04-01 ((2456019j,0s,0n),+0s,2299161j)> 
+	1.9.3p392 :028 > puts date.strftime("%m%d%y")
+	040112
+	 => nil 
+	1.9.3p392 :029 > puts date.strftime("%b %d, %y")
+	Apr 01, 12
+	 => nil 
+	1.9.3p392 :030 > date
+	 => #<Date: 2012-04-01 ((2456019j,0s,0n),+0s,2299161j)> 
+	1.9.3p392 :031 > date.mday
+	 => 1 
+	1.9.3p392 :032 > date.day
+	 => 1 
+	1.9.3p392 :033 > 
+	1.9.3p392 :034 >   date.friday?
+	 => false 
+	1.9.3p392 :035 > date.sunday?
+	 => true 
+	1.9.3p392 :036 > date.month
+	 => 4 
+	1.9.3p392 :037 > date.wday
+	 => 0 
+	1.9.3p392 :038 > 
+	1.9.3p392 :039 >   
+	1.9.3p392 :040 >   date2 = Date.parse("2012/4/3")
+	 => #<Date: 2012-04-03 ((2456021j,0s,0n),+0s,2299161j)> 
+	1.9.3p392 :041 > date2 - date
+	 => (2/1) 
+	1.9.3p392 :042 > puts (date2 - date).to_i
+	2
+	 => nil 
+	1.9.3p392 :043 > 
+	1.9.3p392 :044 >   
+
+	1.9.3p392 :046 > time =Time.new
+	 => 2013-11-02 13:37:47 -0500 
+	1.9.3p392 :047 > time =Time.new
+	 => 2013-11-02 13:37:49 -0500 
+	1.9.3p392 :048 > time =Time.new
+	 => 2013-11-02 13:37:50 -0500 
+	1.9.3p392 :049 > 
+
+
+	# Enumerable Module
+	http://ruby-doc.org/core-1.9.3/Enumerable.html
+	inside of class definition
+		include Enumerable 
+
+
+	# comparable Module
+	http://ruby-doc.org/core-1.9.3/Comparable.html
+	inside of class definition
+		include Comparable
+
+	# IO
+	http://ruby-doc.org/core-1.9.3/IO.html
+	see example "io.rb"
+
+	# Struct
+	Structs are a quick way to bundle attributes together without having to write your own custom class. This video walks through creating your own structs and quickly using them.
+
+	see struct.rb
+
+
+Ruby Standard Library
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

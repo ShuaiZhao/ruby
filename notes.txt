@@ -1,0 +1,33 @@
+blocks
+	see "block.rb"
+	create block
+	yourBlock.call
+
+	#working with block
+	see "block-2.rb"
+	check if the block is given or not
+	if block_given?  # block_given is a given function
+		yourBlock.call
+	esle
+		puts xxx
+	end
+
+	# exception
+	see block-3.rb
+	raise			---    		exception
+	rescue			---			catch
+	ensure			---			finally
+
+	# BEGIN and END block
+	see block-4.rb
+	BEGIN { }this will always be excuted at the beginning of your program
+
+	END {} this will always be excuted at the end of your program
+
+
+	# keyword: yields
+	see exmaple "yield.rb"
+	yield and block.call has the same function BUT:
+	the different betweet yield and block.call is that :
+			yield can be call many times
+			it can pass arguments to block 
