@@ -1241,9 +1241,184 @@ Ruby Core
 
 
 Ruby Standard Library
+	The Ruby standard library is packaged with every Ruby installation. 
+
+	The standard library contains modules and classes that are commonly used for writing programs. This includes functionality for testing, configuration, option parsing, benchmarking, and more. The Ruby Standard Library badge walks through some of the modules and classes available in the standard library.
+
+	# YAML
+	YAML stands for "Yet Another Markup Language." YAML is a plain text and human readable format that is frequently used for configuration files. The YAML video teaches you how to use YAML in your Ruby programs.
+	see "yaml.rb"
+
+
+	# ERB
+	embedded ruby
+	http://www.ruby-doc.org/stdlib-2.0.0/libdoc/erb/rdoc/ERB.html
+
+	see erb.rb
+
+	<%= %>	print 
+	<% %>	no print
+
+
+	# FileUtils
+	The FileUtils module allows you to interact with the file system in your Ruby programs. The FileUtils video walks through some common uses of the FileUtils module.
+
+	http://ruby-doc.org/stdlib-1.9.3/libdoc/fileutils/rdoc/FileUtils.html
+
+	1.9.3p392 :001 > require 'fileutils'
+	 => true 
+	1.9.3p392 :002 > 
+	1.9.3p392 :003 >   here = File.dirname(__FILE__)
+	 => "." 
+	1.9.3p392 :004 > puts File.expand_path(here)
+	/Users/Jack/Documents/ruby
+	 => nil 
+	1.9.3p392 :005 > puts Dir.entries(here)
+	.
+	..
+	.git
+	BankAccount.rb
+	BankAccount2.rb
+	block-2.rb
+	block-3.rb
+	block-4.rb
+	block.rb
+	config.yml
+	control_flow.rb
+	erb.rb
+	examples.rb
+	extend_include.rb
+	extend_include_2.rb
+	hello.rb
+	io.rb
+	loop.rb
+	module.rb
+	my_file.txt
+	notes.txt
+	paper.rb
+	proc_and_lambda.rb
+	README
+	ruby_1_9_3_core
+	ruby_notes.txt
+	single_method.rb
+	struct.rb
+	symbol.rb
+	yaml.rb
+	yield.rb
+	 => nil 
+	1.9.3p392 :006 > FileUtils.mk
+	FileUtils.mkdir    FileUtils.mkdir_p  FileUtils.mkpath   
+	1.9.3p392 :006 > FileUtils.mkdir_p(here + '/stuff')
+	 => ["./stuff"] 
+	1.9.3p392 :007 > puts Dir.entries(here)
+	.
+	..
+	.git
+	BankAccount.rb
+	BankAccount2.rb
+	block-2.rb
+	block-3.rb
+	block-4.rb
+	block.rb
+	config.yml
+	control_flow.rb
+	erb.rb
+	examples.rb
+	extend_include.rb
+	extend_include_2.rb
+	hello.rb
+	io.rb
+	loop.rb
+	module.rb
+	my_file.txt
+	notes.txt
+	paper.rb
+	proc_and_lambda.rb
+	README
+	ruby_1_9_3_core
+	ruby_notes.txt
+	single_method.rb
+	struct.rb
+	stuff
+	symbol.rb
+	yaml.rb
+	yield.rb
+	 => nil 
+
+	 # FileUtils copy/remove files
+	1.9.3p392 :014 >   puts FileUtils.cmp(path1, path2)
+	1.9.3p392 :015 > FileUtils.touch "newFile"
+	 => ["newFile"] 
+	 1.9.3p392 :018 > FileUtils.cp 'newFile', 'newFile2'
+	 => nil 
+	 1.9.3p392 :019 > FileUtils.remove 'newFile'
+	 => ["newFile"] 
+	1.9.3p392 :020 > FileUtils.remove 'newFile2'
+	 => ["newFile2"] 
+
+
+	 # Logger
+
+	 see "logger.rb"
+	 Saving output in your programs is very helpful when debugging them. The Logger class provides a built in way of logging at different levels automatically. The logger video walks through creating logger instances in your own classes.
+
+	 http://www.ruby-doc.org/stdlib-1.9.3/libdoc/logger/rdoc/Logger.html
+
+	 # URI
+
+	 URI stands for "Uniform Resource Identifier." The URI module can be used to parse and manipulate URIs in your Ruby programs.
+
+	 http://www.ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI.html
+
+	 see 'uri.rb'
+
+
+	 #Benchamrk
+	 http://www.ruby-doc.org/stdlib-1.9.3/libdoc/benchmark/rdoc/Benchmark.html
+
+	 Benchmarking is the process of measuring how long certain parts of programs take to run. The Benchmark module provides a common starting point for benchmarking your programs.
+
+	 see "benchmark.rb"
+
+
+optParse
+
+
+	It is common to allow command line programs to accept options, or flags. The OptionParser class provides a common way of parsing command line arguments and displaying help text.
+
+	http://ruby-doc.org/stdlib-1.9.3/libdoc/optparse/rdoc/OptionParser.html
+
+	see 'optparse.rb'
+
+obserable
+	The Observable module allows you to easily implement the observer pattern in your classes. The observer pattern specifies that an object maintains a list of its dependents, called observers, and notifies them automatically of any state changes.
+	
+	http://ruby-doc.org/stdlib-1.9.3/libdoc/observer/rdoc/Observable.html
+
+	see "obserable.rb"
 
 
 
+Testing
+	Automated testing is the process of writing code that tests different behavior of your programs. The Ruby standard library includes a library called MiniTest which can be used to write automated tests. The Ruby Testing Badge walks through using the MiniTest library and introduces the process of test driven development.
+
+	# MiniTest
+	MiniTest is an automated testing library that comes with Ruby. In the MiniTest video, we'll learn how to include MiniTest in our projects, write automated tests, and learn about assertions.
+
+	see "minitest.rb"
+
+
+	# MiniTest::Spec
+	The Spec library in MiniTest allows one to use a different syntax to write automated tests. Learn how to write tests with minitest/spec and the different way of using the built in assertions with the spec library.
+
+	see minitestspec.rb
+	http://www.ruby-doc.org/stdlib-1.9.3/libdoc/minitest/spec/rdoc/MiniTest/Spec.html
+
+
+	# Test Driven Development
+	Test Driven Development is the process of writing tests for your program before you write the code
+
+	
 
 
 

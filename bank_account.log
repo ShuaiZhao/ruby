@@ -1,0 +1,3 @@
+# Logfile created on 2013-11-02 17:08:56 -0500 by logger.rb/31641
+I, [2013-11-02T17:08:56.824089 #4955]  INFO -- BankAccount jack: deposit 100
+I, [2013-11-02T17:08:56.824175 #4955]  INFO -- BankAccount jack: withDraw 50
